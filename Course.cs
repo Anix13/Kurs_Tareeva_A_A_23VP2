@@ -8,6 +8,7 @@
         public string ProgrammingLanguage { get; set; }
         public int StudentCount { get; set; }
 
+
         public Course(string courseName, string teacherName, string difficultyLevel, string programmingLanguage)
         {
             CourseName = courseName;

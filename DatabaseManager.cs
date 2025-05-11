@@ -94,18 +94,20 @@ namespace Kurs_Tareeva_A_A_23VP2
         /// <summary>
         /// Загружает данные из XML
         /// </summary>
+
         public void LoadFromXml(string filePath)
         {
-            try
-            {
-                dataSet.ReadXml(filePath);
-                coursesTable = dataSet.Tables["Courses"];
-                studentsTable = dataSet.Tables["Students"];
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка при загрузке: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            Courses.Clear();
+            Students.Clear();
+
+            DataSet ds = new DataSet();
+            ds.ReadXml(filePath);
+
+            if (ds.Tables.Contains("Courses"))
+                Courses.Merge(ds.Tables["Courses"]);
+
+            if (ds.Tables.Contains("Students"))
+                Students.Merge(ds.Tables["Students"]);
         }
 
         /// <summary>

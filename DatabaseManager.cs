@@ -198,10 +198,11 @@ namespace Kurs_Tareeva_A_A_23VP2
         /// </summary>
         public void UpdateCourse(string courseName, string teacherName, string difficultyLevel, string language)
         {
-            var rows = coursesTable.Select($"CourseName = '{courseName}'");
-            if (rows.Length > 0)
+            DataRow row = coursesTable.AsEnumerable()
+                .FirstOrDefault(r => r.Field<string>("CourseName") == courseName);
+
+            if (row != null)
             {
-                var row = rows[0];
                 row["TeacherName"] = teacherName;
                 row["DifficultyLevel"] = difficultyLevel;
                 row["ProgrammingLanguage"] = language;

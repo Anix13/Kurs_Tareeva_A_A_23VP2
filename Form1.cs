@@ -676,44 +676,7 @@ namespace Kurs_Tareeva_A_A_23VP2
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            comboBoxc1.SelectedIndex = 0;
 
-            comboBoxc2.Items.AddRange(new string[] {
-        "Название курса",
-        "ФИО преподавателя",
-        "Уровень сложности",
-        "Язык программирования",
-        "Кол-во обучающихся"
-    });
-            comboBoxc2.SelectedIndex = 0;
-
-            comboBoxy1.SelectedIndex = 0;
-            comboBoxy2.Items.AddRange(new string[] {
-                "Фамилия",
-                "Имя",
-                "Отчество",
-                "Название курса",
-                "Уровень доступа"
-            });
-            comboBoxy2.SelectedIndex = 0;
-
-            comboBox3.Items.AddRange(new string[] { "junior", "middle", "senior" });
-            comboBox4.Items.AddRange(new string[] { "junior", "middle", "senior" });
-
-            comboBox11.Items.AddRange(new string[] { "Начальный", "Полный" });
-            comboBox12.Items.AddRange(new string[] { "Начальный", "Полный" });
-
-            создатьToolStripMenuItem.Click += создатьToolStripMenuItem_Click;
-            удалитьToolStripMenuItem.Click += удалитьToolStripMenuItem_Click;
-            открытьToolStripMenuItem.Click += открытьToolStripMenuItem_Click;
-            сохранитьToolStripMenuItem.Click += сохранитьToolStripMenuItem_Click;
-            сформироватьОтчетToolStripMenuItem.Click += сформироватьОтчетToolStripMenuItem_Click;
-
-            buttonSort1.Click += buttonSort1_Click;
-            buttonSort2.Click += buttonSort2_Click;
-        }
         private bool HasUnsavedChanges()
         {
             return dbManager.Courses.Rows.Count > 0 || dbManager.Students.Rows.Count > 0;
@@ -770,5 +733,205 @@ namespace Kurs_Tareeva_A_A_23VP2
                 }
             }
         }
+
+        private void buttonFilt1_Click(object sender, EventArgs e)
+        {
+            string filterField = comboBoxc3.SelectedItem?.ToString();
+            string filterValue = textBoxc.Text.Trim();
+
+            if (string.IsNullOrEmpty(filterField))
+            {
+                MessageBox.Show("Выберите поле для фильтрации", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(filterValue) && !filterField.Equals("Кол-во обучающихся"))
+            {
+                MessageBox.Show("Введите значение для фильтрации", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string condition = "";
+
+            switch (filterField)
+            {
+                case "Название курса":
+                    condition = $"CourseName LIKE '%{filterValue}%'";
+                    break;
+
+                case "ФИО преподавателя":
+                    condition = $"TeacherName LIKE '%{filterValue}%'";
+                    break;
+
+                case "Уровень сложности":
+                    condition = $"DifficultyLevel LIKE '%{filterValue}%'";
+                    break;
+
+                case "Язык программирования":
+                    condition = $"ProgrammingLanguage LIKE '%{filterValue}%'";
+                    break;
+
+                case "Кол-во обучающихся":
+                    if (!string.IsNullOrEmpty(filterValue))
+                    {
+                        if (!int.TryParse(filterValue, out int value))
+                        {
+                            MessageBox.Show("Введите корректное число для фильтрации по количеству обучающихся",
+                                "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        condition = $"StudentCount = {value}";
+                    }
+                    else
+                    {
+                        condition = "StudentCount IS NULL OR StudentCount = 0";
+                    }
+                    break;
+
+                default:
+                    MessageBox.Show("Неизвестное поле фильтрации", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+            }
+
+            try
+            {
+                DataView dv = new DataView(dbManager.Courses);
+                dv.RowFilter = condition;
+
+                if (dv.Count == 0)
+                {
+                    MessageBox.Show("Нет записей, соответствующих условию фильтра", "Информация",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                dataGridView1.DataSource = dv;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка фильтрации: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            comboBoxc1.SelectedIndex = 0;
+
+            comboBoxc2.Items.AddRange(new string[] {
+        "Название курса",
+        "ФИО преподавателя",
+        "Уровень сложности",
+        "Язык программирования",
+        "Кол-во обучающихся"
+    });
+            comboBoxc2.SelectedIndex = 0;
+
+            comboBoxy1.SelectedIndex = 0;
+            comboBoxy2.Items.AddRange(new string[] {
+                "Фамилия",
+                "Имя",
+                "Отчество",
+                "Название курса",
+                "Уровень доступа"
+            });
+            comboBoxy2.SelectedIndex = 0;
+            comboBoxy3.Items.AddRange(new string[] {
+    "Фамилия",
+    "Имя",
+    "Отчество",
+    "Курс",
+    "Уровень доступа"
+});
+            comboBoxy3.SelectedIndex = 0;
+
+            comboBoxc3.Items.AddRange(new string[] {
+    "Название курса",
+    "ФИО преподавателя",
+    "Уровень сложности",
+    "Язык программирования",
+    "Кол-во обучающихся"
+});
+            comboBoxc3.SelectedIndex = 0;
+            comboBox3.Items.AddRange(new string[] { "junior", "middle", "senior" });
+            comboBox4.Items.AddRange(new string[] { "junior", "middle", "senior" });
+
+            comboBox11.Items.AddRange(new string[] { "Начальный", "Полный" });
+            comboBox12.Items.AddRange(new string[] { "Начальный", "Полный" });
+
+            создатьToolStripMenuItem.Click += создатьToolStripMenuItem_Click;
+            удалитьToolStripMenuItem.Click += удалитьToolStripMenuItem_Click;
+            открытьToolStripMenuItem.Click += открытьToolStripMenuItem_Click;
+            сохранитьToolStripMenuItem.Click += сохранитьToolStripMenuItem_Click;
+            сформироватьОтчетToolStripMenuItem.Click += сформироватьОтчетToolStripMenuItem_Click;
+
+            buttonSort1.Click += buttonSort1_Click;
+            buttonSort2.Click += buttonSort2_Click;
+        }
+
+        private void buttonFilt2_Click(object sender, EventArgs e)
+        {
+            string filterField = comboBoxy3.SelectedItem?.ToString();
+            string filterValue = textBoxy.Text.Trim();
+
+            if (string.IsNullOrEmpty(filterField))
+            {
+                MessageBox.Show("Выберите поле для фильтрации", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(filterValue) &&
+                (filterField == "Фамилия" || filterField == "Имя" || filterField == "Отчество" || filterField == "Курс"))
+            {
+                MessageBox.Show("Введите значение для фильтрации", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string condition = "";
+
+            switch (filterField)
+            {
+                case "Фамилия":
+                    condition = $"LastName LIKE '%{filterValue}%'";
+                    break;
+
+                case "Имя":
+                    condition = $"FirstName LIKE '%{filterValue}%'";
+                    break;
+
+                case "Отчество":
+                    condition = $"MiddleName LIKE '%{filterValue}%'";
+                    break;
+
+                case "Курс":
+                    condition = $"CourseName LIKE '%{filterValue}%'";
+                    break;
+
+                case "Уровень доступа":
+                    condition = $"AccessLevel LIKE '%{filterValue}%'";
+                    break;
+
+                default:
+                    MessageBox.Show("Неизвестное поле фильтрации", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+            }
+
+            try
+            {
+                DataView dv = new DataView(dbManager.Students);
+                dv.RowFilter = condition;
+
+                if (dv.Count == 0)
+                {
+                    MessageBox.Show("Нет записей, соответствующих условию фильтра", "Информация",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                dataGridView2.DataSource = dv;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка фильтрации: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
+
+
 }

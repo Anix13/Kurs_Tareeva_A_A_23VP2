@@ -154,7 +154,7 @@
             this.отчет1ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1546, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1546, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -948,6 +948,7 @@
             this.buttonFilt1.TabIndex = 60;
             this.buttonFilt1.Text = "Фильтровать";
             this.buttonFilt1.UseVisualStyleBackColor = true;
+            this.buttonFilt1.Click += new System.EventHandler(this.buttonFilt1_Click);
             // 
             // buttonSort1
             // 
@@ -1046,6 +1047,7 @@
             this.buttonFilt2.TabIndex = 57;
             this.buttonFilt2.Text = "Фильтровать";
             this.buttonFilt2.UseVisualStyleBackColor = true;
+            this.buttonFilt2.Click += new System.EventHandler(this.buttonFilt2_Click);
             // 
             // comboBoxy3
             // 

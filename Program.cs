@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kurs_Tareeva_A_A_23VP2;
+using System;
 using System.Windows.Forms;
 
 namespace Kursov_Tareeva23VP2
@@ -11,8 +12,15 @@ namespace Kursov_Tareeva23VP2
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // Заменить запуск основной формы на SplashForm
-            Application.Run(new FormStartcs());
+            // Показываем стартовую форму как диалог
+            using (FormStartcs startForm = new FormStartcs())
+            {
+                if (startForm.ShowDialog() == DialogResult.OK)
+                {
+                    // Если нажата кнопка "Начать" — открыть основную форму
+                    Application.Run(new Form1());
+                }
+            }
         }
     }
 }

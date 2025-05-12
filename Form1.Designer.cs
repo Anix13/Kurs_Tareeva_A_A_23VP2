@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.создатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,11 +40,6 @@
             this.сформироватьОтчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -64,9 +60,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -76,7 +69,6 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
@@ -93,8 +85,6 @@
             this.button6 = new System.Windows.Forms.Button();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -124,21 +114,16 @@
             this.comboBoxy2 = new System.Windows.Forms.ComboBox();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.buttonOtm1 = new System.Windows.Forms.Button();
             this.buttonSearch1 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.buttonOtm2 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.label37 = new System.Windows.Forms.Label();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonOtm2 = new System.Windows.Forms.Button();
-            this.buttonOtm1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -162,7 +147,7 @@
             this.отчет1ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1546, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1546, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -174,7 +159,7 @@
             this.удалитьToolStripMenuItem,
             this.сохранитьToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 26);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // создатьToolStripMenuItem
@@ -207,7 +192,7 @@
             this.отчет1ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.сформироватьОтчетToolStripMenuItem});
             this.отчет1ToolStripMenuItem.Name = "отчет1ToolStripMenuItem";
-            this.отчет1ToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.отчет1ToolStripMenuItem.Size = new System.Drawing.Size(62, 26);
             this.отчет1ToolStripMenuItem.Text = "Отчет";
             // 
             // сформироватьОтчетToolStripMenuItem
@@ -226,53 +211,12 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.RoyalBlue;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NameColumn,
-            this.Column1,
-            this.Column2,
-            this.Column4,
-            this.Column3});
             this.dataGridView1.Location = new System.Drawing.Point(6, 67);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(984, 399);
+            this.dataGridView1.Size = new System.Drawing.Size(984, 474);
             this.dataGridView1.TabIndex = 2;
-            // 
-            // NameColumn
-            // 
-            this.NameColumn.HeaderText = "Название курса";
-            this.NameColumn.MinimumWidth = 6;
-            this.NameColumn.Name = "NameColumn";
-            this.NameColumn.Width = 175;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = " ФИО преподавателя";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Уровень сложности ";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 125;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Язык программирования";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Кол-во обучающихся";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 125;
             // 
             // tabControl1
             // 
@@ -436,9 +380,6 @@
             this.tabPage2.Controls.Add(this.button4);
             this.tabPage2.Controls.Add(this.textBox6);
             this.tabPage2.Controls.Add(this.comboBox7);
-            this.tabPage2.Controls.Add(this.label12);
-            this.tabPage2.Controls.Add(this.label17);
-            this.tabPage2.Controls.Add(this.label18);
             this.tabPage2.Controls.Add(this.textBox7);
             this.tabPage2.Controls.Add(this.textBox8);
             this.tabPage2.Controls.Add(this.label19);
@@ -507,39 +448,7 @@
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(227, 33);
             this.comboBox7.TabIndex = 36;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label12.Location = new System.Drawing.Point(237, 220);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(120, 16);
-            this.label12.TabIndex = 34;
-            this.label12.Text = "текст для ошибок";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label17.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label17.Location = new System.Drawing.Point(237, 136);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(120, 16);
-            this.label17.TabIndex = 33;
-            this.label17.Text = "текст для ошибок";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label18.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label18.Location = new System.Drawing.Point(237, 65);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(120, 16);
-            this.label18.TabIndex = 32;
-            this.label18.Text = "текст для ошибок";
+            this.comboBox7.SelectedIndexChanged += new System.EventHandler(this.comboBox7_SelectedIndexChanged);
             // 
             // textBox7
             // 
@@ -602,7 +511,6 @@
             this.tabPage3.BackColor = System.Drawing.Color.AliceBlue;
             this.tabPage3.Controls.Add(this.button3);
             this.tabPage3.Controls.Add(this.comboBox5);
-            this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Controls.Add(this.textBox3);
             this.tabPage3.Controls.Add(this.textBox5);
             this.tabPage3.Controls.Add(this.comboBox4);
@@ -637,17 +545,6 @@
             this.comboBox5.Size = new System.Drawing.Size(227, 33);
             this.comboBox5.TabIndex = 30;
             this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label10.Location = new System.Drawing.Point(236, 299);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(120, 16);
-            this.label10.TabIndex = 29;
-            this.label10.Text = "текст для ошибок";
             // 
             // textBox3
             // 
@@ -735,8 +632,6 @@
             this.tabPage4.Controls.Add(this.button6);
             this.tabPage4.Controls.Add(this.textBox9);
             this.tabPage4.Controls.Add(this.comboBox6);
-            this.tabPage4.Controls.Add(this.label23);
-            this.tabPage4.Controls.Add(this.label24);
             this.tabPage4.Controls.Add(this.textBox10);
             this.tabPage4.Controls.Add(this.label26);
             this.tabPage4.Controls.Add(this.label27);
@@ -827,28 +722,6 @@
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(227, 33);
             this.comboBox6.TabIndex = 48;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label23.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label23.Location = new System.Drawing.Point(240, 224);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(120, 16);
-            this.label23.TabIndex = 47;
-            this.label23.Text = "текст для ошибок";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label24.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label24.Location = new System.Drawing.Point(240, 140);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(120, 16);
-            this.label24.TabIndex = 46;
-            this.label24.Text = "текст для ошибок";
             // 
             // textBox10
             // 
@@ -1159,6 +1032,19 @@
             this.tabPage7.TabIndex = 0;
             this.tabPage7.Text = "Курсы";
             // 
+            // buttonOtm1
+            // 
+            this.buttonOtm1.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.buttonOtm1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonOtm1.ForeColor = System.Drawing.Color.AliceBlue;
+            this.buttonOtm1.Location = new System.Drawing.Point(903, 12);
+            this.buttonOtm1.Name = "buttonOtm1";
+            this.buttonOtm1.Size = new System.Drawing.Size(87, 30);
+            this.buttonOtm1.TabIndex = 22;
+            this.buttonOtm1.Text = "Отмена\r\n";
+            this.buttonOtm1.UseVisualStyleBackColor = false;
+            this.buttonOtm1.Click += new System.EventHandler(this.buttonOtm1_Click);
+            // 
             // buttonSearch1
             // 
             this.buttonSearch1.BackColor = System.Drawing.Color.RoyalBlue;
@@ -1205,6 +1091,19 @@
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Ученики";
             // 
+            // buttonOtm2
+            // 
+            this.buttonOtm2.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.buttonOtm2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonOtm2.ForeColor = System.Drawing.Color.AliceBlue;
+            this.buttonOtm2.Location = new System.Drawing.Point(903, 16);
+            this.buttonOtm2.Name = "buttonOtm2";
+            this.buttonOtm2.Size = new System.Drawing.Size(87, 30);
+            this.buttonOtm2.TabIndex = 21;
+            this.buttonOtm2.Text = "Отмена\r\n";
+            this.buttonOtm2.UseVisualStyleBackColor = false;
+            this.buttonOtm2.Click += new System.EventHandler(this.buttonOtm2_Click);
+            // 
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.CornflowerBlue;
@@ -1240,79 +1139,12 @@
             // 
             this.dataGridView2.BackgroundColor = System.Drawing.Color.CornflowerBlue;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.Column5});
-            this.dataGridView2.Location = new System.Drawing.Point(9, 67);
+            this.dataGridView2.Location = new System.Drawing.Point(6, 67);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(984, 405);
+            this.dataGridView2.Size = new System.Drawing.Size(984, 474);
             this.dataGridView2.TabIndex = 7;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Фамилия";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 175;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = " Имя";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Отчество";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Название курса";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 200;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Уровень доступа";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 125;
-            // 
-            // buttonOtm2
-            // 
-            this.buttonOtm2.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.buttonOtm2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonOtm2.ForeColor = System.Drawing.Color.AliceBlue;
-            this.buttonOtm2.Location = new System.Drawing.Point(903, 16);
-            this.buttonOtm2.Name = "buttonOtm2";
-            this.buttonOtm2.Size = new System.Drawing.Size(87, 30);
-            this.buttonOtm2.TabIndex = 21;
-            this.buttonOtm2.Text = "Отмена\r\n";
-            this.buttonOtm2.UseVisualStyleBackColor = false;
-            this.buttonOtm2.Click += new System.EventHandler(this.buttonOtm2_Click);
-            // 
-            // buttonOtm1
-            // 
-            this.buttonOtm1.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.buttonOtm1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonOtm1.ForeColor = System.Drawing.Color.AliceBlue;
-            this.buttonOtm1.Location = new System.Drawing.Point(903, 12);
-            this.buttonOtm1.Name = "buttonOtm1";
-            this.buttonOtm1.Size = new System.Drawing.Size(87, 30);
-            this.buttonOtm1.TabIndex = 22;
-            this.buttonOtm1.Text = "Отмена\r\n";
-            this.buttonOtm1.UseVisualStyleBackColor = false;
-            this.buttonOtm1.Click += new System.EventHandler(this.buttonOtm1_Click);
             // 
             // Form1
             // 
@@ -1323,6 +1155,7 @@
             this.Controls.Add(this.tabControl3);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1471, 712);
             this.Name = "Form1";
@@ -1383,7 +1216,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.ComboBox comboBox4;
@@ -1392,9 +1224,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label19;
@@ -1409,18 +1238,11 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tabPage8;
@@ -1432,11 +1254,6 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.ComboBox comboBox12;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.ComboBox comboBox11;
         private System.Windows.Forms.ToolStripMenuItem отчет1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сформироватьОтчетToolStripMenuItem;

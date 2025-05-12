@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -84,6 +85,7 @@ namespace Kurs_Tareeva_A_A_23VP2
             try
             {
                 dataSet.WriteXml(filePath);
+                dataSet.WriteXmlSchema(Path.ChangeExtension(filePath, ".xsd")); // Сохраняем схему
             }
             catch (Exception ex)
             {
@@ -97,17 +99,47 @@ namespace Kurs_Tareeva_A_A_23VP2
 
         public void LoadFromXml(string filePath)
         {
+            DataSet ds = new DataSet();
+
+            // Читаем схему из XML, если она есть
+            if (File.Exists(Path.ChangeExtension(filePath, ".xsd")))
+            {
+                ds.ReadXmlSchema(Path.ChangeExtension(filePath, ".xsd"));
+            }
+
+            ds.ReadXml(filePath);
+
             Courses.Clear();
             Students.Clear();
 
-            DataSet ds = new DataSet();
-            ds.ReadXml(filePath);
-
             if (ds.Tables.Contains("Courses"))
-                Courses.Merge(ds.Tables["Courses"]);
+            {
+                var sourceTable = ds.Tables["Courses"];
+
+                // Явно задаём типы, если они отличаются
+                foreach (DataRow row in sourceTable.Rows)
+                {
+                    DataRow newRow = coursesTable.NewRow();
+
+                    newRow["CourseName"] = row["CourseName"];
+                    newRow["TeacherName"] = row["TeacherName"];
+                    newRow["DifficultyLevel"] = row["DifficultyLevel"];
+                    newRow["ProgrammingLanguage"] = row["ProgrammingLanguage"];
+
+                    // Обрабатываем StudentCount безопасно
+                    if (row["StudentCount"] is DBNull || !int.TryParse(row["StudentCount"].ToString(), out int count))
+                        newRow["StudentCount"] = 0;
+                    else
+                        newRow["StudentCount"] = count;
+
+                    coursesTable.Rows.Add(newRow);
+                }
+            }
 
             if (ds.Tables.Contains("Students"))
+            {
                 Students.Merge(ds.Tables["Students"]);
+            }
         }
 
         /// <summary>
@@ -119,7 +151,7 @@ namespace Kurs_Tareeva_A_A_23VP2
                 .Any(r => r.Field<string>("CourseName")?.Trim().Equals(courseName.Trim(), StringComparison.OrdinalIgnoreCase) ?? false);
         }
 
-        /// <summary>
+        /// <summary>A
         /// Добавляет новый курс
         /// </summary>
         public void AddCourse(Course course)

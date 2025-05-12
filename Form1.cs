@@ -23,39 +23,21 @@ namespace Kurs_Tareeva_A_A_23VP2
         private void InitializeDataGridViews()
         {
             dataGridView1.DataSource = dbManager.Courses;
+            dataGridView1.Columns["CourseName"].HeaderText = "Название курса";
+            dataGridView1.Columns["TeacherName"].HeaderText = "ФИО преподавателя";
+            dataGridView1.Columns["DifficultyLevel"].HeaderText = "Уровень сложности";
+            dataGridView1.Columns["ProgrammingLanguage"].HeaderText = "Язык программирования";
+            dataGridView1.Columns["StudentCount"].HeaderText = "Кол-во учеников";
+
             dataGridView2.DataSource = dbManager.Students;
+            dataGridView2.Columns["LastName"].HeaderText = "Имя";
+            dataGridView2.Columns["FirstName"].HeaderText = "Фамилия";
+            dataGridView2.Columns["MiddleName"].HeaderText = "Отчество";
+            dataGridView2.Columns["CourseName"].HeaderText = "Название курса";
+            dataGridView2.Columns["AccessLevel"].HeaderText = "Уровень доступа";
 
-            // --- Заголовки для Курсов ---
-            NameColumn.DataPropertyName = "CourseName";
-            NameColumn.HeaderText = "Название курса";
 
-            Column1.DataPropertyName = "TeacherName";
-            Column1.HeaderText = "ФИО преподавателя";
 
-            Column2.DataPropertyName = "DifficultyLevel";
-            Column2.HeaderText = "Уровень сложности";
-
-            Column4.DataPropertyName = "ProgrammingLanguage";
-            Column4.HeaderText = "Язык программирования";
-
-            Column3.DataPropertyName = "StudentCount";
-            Column3.HeaderText = "Кол-во обучающихся";
-
-            // --- Заголовки для Студентов ---
-            dataGridViewTextBoxColumn1.DataPropertyName = "LastName";
-            dataGridViewTextBoxColumn1.HeaderText = "Фамилия";
-
-            dataGridViewTextBoxColumn2.DataPropertyName = "FirstName";
-            dataGridViewTextBoxColumn2.HeaderText = "Имя";
-
-            dataGridViewTextBoxColumn3.DataPropertyName = "MiddleName";
-            dataGridViewTextBoxColumn3.HeaderText = "Отчество";
-
-            dataGridViewTextBoxColumn4.DataPropertyName = "CourseName";
-            dataGridViewTextBoxColumn4.HeaderText = "Курс";
-
-            Column5.DataPropertyName = "AccessLevel";
-            Column5.HeaderText = "Уровень доступа";
         }
 
 
@@ -312,7 +294,6 @@ namespace Kurs_Tareeva_A_A_23VP2
             comboBox11.SelectedIndex = -1;
 
             RefreshStudentComboBox();
-            dataGridView2.DataSource = null;
             dataGridView2.DataSource = dbManager.Students;
             dataGridView2.Refresh();
 
@@ -853,9 +834,6 @@ namespace Kurs_Tareeva_A_A_23VP2
             comboBox3.Items.AddRange(new string[] { "junior", "middle", "senior" });
             comboBox4.Items.AddRange(new string[] { "junior", "middle", "senior" });
 
-            comboBox11.Items.AddRange(new string[] { "Начальный", "Полный" });
-            comboBox12.Items.AddRange(new string[] { "Начальный", "Полный" });
-
             создатьToolStripMenuItem.Click += создатьToolStripMenuItem_Click;
             удалитьToolStripMenuItem.Click += удалитьToolStripMenuItem_Click;
             открытьToolStripMenuItem.Click += открытьToolStripMenuItem_Click;
@@ -1012,6 +990,11 @@ namespace Kurs_Tareeva_A_A_23VP2
         private void buttonOtm2_Click(object sender, EventArgs e)
         {
             ResetStudentSearch();
+        }
+
+        private void comboBox7_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

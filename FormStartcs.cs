@@ -43,12 +43,8 @@ namespace Kursov_Tareeva23VP2
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            // Закрыть текущую форму (SplashForm)
-            this.Hide();
-
-            // Открыть основную форму (Form1)
-            Form1 form1 = new Form1();
-            form1.Show();
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private Label labelInfo;

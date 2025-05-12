@@ -864,6 +864,11 @@ namespace Kurs_Tareeva_A_A_23VP2
 
             buttonSort1.Click += buttonSort1_Click;
             buttonSort2.Click += buttonSort2_Click;
+            buttonSearch1.Click += buttonSearch1_Click;
+            button7.Click += button7_Click;
+
+            buttonOtm1.Click += buttonOtm1_Click;
+            buttonOtm2.Click += buttonOtm2_Click;
         }
 
         private void buttonFilt2_Click(object sender, EventArgs e)
@@ -931,7 +936,85 @@ namespace Kurs_Tareeva_A_A_23VP2
                 MessageBox.Show($"Ошибка фильтрации: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void SearchTable(DataTable table, string searchText, DataGridView dataGridView, string tableName = "таблицы")
+        {
+            if (string.IsNullOrEmpty(searchText))
+            {
+                // Если поле пустое — показать все записи
+                dataGridView.DataSource = table;
+                return;
+            }
+
+            DataView dv = new DataView(table);
+            string filter = "";
+
+            foreach (DataColumn column in table.Columns)
+            {
+                if (column.DataType == typeof(string))
+                {
+                    filter += $"{column.ColumnName} LIKE '%{searchText}%' OR ";
+                }
+                else if (column.DataType == typeof(int) && int.TryParse(searchText, out _))
+                {
+                    filter += $"{column.ColumnName} = {searchText} OR ";
+                }
+            }
+
+            if (!string.IsNullOrEmpty(filter))
+            {
+                filter = filter.Substring(0, filter.Length - 4); // Удаляем последний " OR "
+                dv.RowFilter = filter;
+
+                if (dv.Count == 0)
+                {
+                    MessageBox.Show($"Нет записей в {tableName}, соответствующих вашему запросу", "Информация",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+
+            dataGridView.DataSource = dv;
+        }
+
+        private void buttonSearch1_Click(object sender, EventArgs e)
+        {
+            string searchText = textBox11.Text.Trim();
+            SearchTable(dbManager.Courses, searchText, dataGridView1, "курсах");
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            string searchText = textBox12.Text.Trim();
+            SearchTable(dbManager.Courses, searchText, dataGridView1, "студентах");
+        }
+
+        private void ResetCourseSearch()
+        {
+            textBox11.Clear(); 
+            dataGridView1.DataSource = dbManager.Courses; 
+            MessageBox.Show("Поиск по курсам отменён. Отображены все записи.", "Информация",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void ResetStudentSearch()
+        {
+            textBox12.Clear(); 
+            dataGridView2.DataSource = dbManager.Students; 
+            MessageBox.Show("Поиск по ученикам отменён. Отображены все записи.", "Информация",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void buttonOtm1_Click(object sender, EventArgs e)
+        {
+            ResetCourseSearch();
+        }
+
+
+        private void buttonOtm2_Click(object sender, EventArgs e)
+        {
+            ResetStudentSearch();
+        }
     }
+
 
 
 }

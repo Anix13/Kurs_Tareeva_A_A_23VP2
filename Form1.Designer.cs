@@ -32,6 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.создатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчет1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -123,14 +124,21 @@
             this.comboBoxy2 = new System.Windows.Forms.ComboBox();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.buttonSearch1 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox11 = new System.Windows.Forms.TextBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.button7 = new System.Windows.Forms.Button();
+            this.label37 = new System.Windows.Forms.Label();
+            this.textBox12 = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonOtm2 = new System.Windows.Forms.Button();
+            this.buttonOtm1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -154,7 +162,7 @@
             this.отчет1ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1546, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1546, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -174,6 +182,13 @@
             this.создатьToolStripMenuItem.Name = "создатьToolStripMenuItem";
             this.создатьToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.создатьToolStripMenuItem.Text = "Создать";
+            // 
+            // открытьToolStripMenuItem
+            // 
+            this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
+            this.открытьToolStripMenuItem.Text = "Открыть";
+            this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
             // удалитьToolStripMenuItem
             // 
@@ -217,7 +232,7 @@
             this.Column2,
             this.Column4,
             this.Column3});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 48);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 67);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -1132,6 +1147,10 @@
             // tabPage7
             // 
             this.tabPage7.BackColor = System.Drawing.Color.AliceBlue;
+            this.tabPage7.Controls.Add(this.buttonOtm1);
+            this.tabPage7.Controls.Add(this.buttonSearch1);
+            this.tabPage7.Controls.Add(this.label11);
+            this.tabPage7.Controls.Add(this.textBox11);
             this.tabPage7.Controls.Add(this.dataGridView1);
             this.tabPage7.Location = new System.Drawing.Point(4, 25);
             this.tabPage7.Name = "tabPage7";
@@ -1140,9 +1159,44 @@
             this.tabPage7.TabIndex = 0;
             this.tabPage7.Text = "Курсы";
             // 
+            // buttonSearch1
+            // 
+            this.buttonSearch1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.buttonSearch1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSearch1.ForeColor = System.Drawing.Color.AliceBlue;
+            this.buttonSearch1.Location = new System.Drawing.Point(807, 12);
+            this.buttonSearch1.Name = "buttonSearch1";
+            this.buttonSearch1.Size = new System.Drawing.Size(87, 30);
+            this.buttonSearch1.TabIndex = 17;
+            this.buttonSearch1.Text = "Поиск";
+            this.buttonSearch1.UseVisualStyleBackColor = false;
+            this.buttonSearch1.Click += new System.EventHandler(this.buttonSearch1_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.Location = new System.Drawing.Point(57, 19);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(153, 20);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "Поиск по курсам:";
+            // 
+            // textBox11
+            // 
+            this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox11.Location = new System.Drawing.Point(216, 12);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(569, 30);
+            this.textBox11.TabIndex = 15;
+            // 
             // tabPage8
             // 
             this.tabPage8.BackColor = System.Drawing.Color.AliceBlue;
+            this.tabPage8.Controls.Add(this.buttonOtm2);
+            this.tabPage8.Controls.Add(this.button7);
+            this.tabPage8.Controls.Add(this.label37);
+            this.tabPage8.Controls.Add(this.textBox12);
             this.tabPage8.Controls.Add(this.dataGridView2);
             this.tabPage8.Location = new System.Drawing.Point(4, 25);
             this.tabPage8.Name = "tabPage8";
@@ -1150,6 +1204,37 @@
             this.tabPage8.Size = new System.Drawing.Size(996, 547);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Ученики";
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button7.ForeColor = System.Drawing.Color.AliceBlue;
+            this.button7.Location = new System.Drawing.Point(810, 16);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(87, 30);
+            this.button7.TabIndex = 20;
+            this.button7.Text = "Поиск";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label37.Location = new System.Drawing.Point(60, 23);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(153, 20);
+            this.label37.TabIndex = 19;
+            this.label37.Text = "Поиск по курсам:";
+            // 
+            // textBox12
+            // 
+            this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox12.Location = new System.Drawing.Point(219, 16);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(569, 30);
+            this.textBox12.TabIndex = 18;
             // 
             // dataGridView2
             // 
@@ -1161,7 +1246,7 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.Column5});
-            this.dataGridView2.Location = new System.Drawing.Point(6, 55);
+            this.dataGridView2.Location = new System.Drawing.Point(9, 67);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
@@ -1203,12 +1288,31 @@
             this.Column5.Name = "Column5";
             this.Column5.Width = 125;
             // 
-            // открытьToolStripMenuItem
+            // buttonOtm2
             // 
-            this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.открытьToolStripMenuItem.Text = "Открыть";
-            this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
+            this.buttonOtm2.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.buttonOtm2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonOtm2.ForeColor = System.Drawing.Color.AliceBlue;
+            this.buttonOtm2.Location = new System.Drawing.Point(903, 16);
+            this.buttonOtm2.Name = "buttonOtm2";
+            this.buttonOtm2.Size = new System.Drawing.Size(87, 30);
+            this.buttonOtm2.TabIndex = 21;
+            this.buttonOtm2.Text = "Отмена\r\n";
+            this.buttonOtm2.UseVisualStyleBackColor = false;
+            this.buttonOtm2.Click += new System.EventHandler(this.buttonOtm2_Click);
+            // 
+            // buttonOtm1
+            // 
+            this.buttonOtm1.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.buttonOtm1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonOtm1.ForeColor = System.Drawing.Color.AliceBlue;
+            this.buttonOtm1.Location = new System.Drawing.Point(903, 12);
+            this.buttonOtm1.Name = "buttonOtm1";
+            this.buttonOtm1.Size = new System.Drawing.Size(87, 30);
+            this.buttonOtm1.TabIndex = 22;
+            this.buttonOtm1.Text = "Отмена\r\n";
+            this.buttonOtm1.UseVisualStyleBackColor = false;
+            this.buttonOtm1.Click += new System.EventHandler(this.buttonOtm1_Click);
             // 
             // Form1
             // 
@@ -1242,7 +1346,9 @@
             this.tabPage6.PerformLayout();
             this.tabControl3.ResumeLayout(false);
             this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
             this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1353,6 +1459,14 @@
         private System.Windows.Forms.TextBox textBoxy;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.Button buttonSearch1;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.Button buttonOtm2;
+        private System.Windows.Forms.Button buttonOtm1;
     }
 }
 
